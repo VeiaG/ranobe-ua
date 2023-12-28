@@ -1,0 +1,38 @@
+.book{
+    position: relative;
+    background:red; //for debug
+
+    
+    &__imageContainer{
+        display: block;
+        width:100%;
+        height:100%;
+        overflow: hidden;
+        img{
+            transition: all 0.3s ease-in-out;
+            object-fit: cover;
+            width:100%;
+            height:100%;
+        }
+    }
+    &__text{
+        background:linear-gradient(to top , var(--background-100) 25% , rgba(0, 0, 0, 0));
+        transition: background-size 0.3s ease-in-out;
+        position: absolute;
+        left:0;
+        bottom:0;
+        width:100%;
+        padding:12px 16px;
+        background-size:1px 100%;
+
+        color:var(--text-950);
+    }
+    &:hover{
+        .book__text{
+            background-position:100px; 
+        }
+        img{
+            scale:1.05;
+        }
+    }
+}

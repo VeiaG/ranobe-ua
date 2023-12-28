@@ -1,0 +1,111 @@
+.read{
+    color:var(--text-800);
+    p{
+        font-size:24px;
+        
+    }
+    a{
+        color:var(--text-950);
+        text-decoration: none;
+        transition: transform 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+    &__links{
+        display:flex;
+        justify-content: space-between;
+        font-size:32px;
+    }
+    i.inactive{
+        color:var(--text-500);
+    }
+}
+.readHeader{
+    background:var(--primary-100);
+    position: sticky;
+    top:0;
+    z-index:25;
+    padding: 8px 0;;
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        gap:16px;
+        i{
+            font-size:24px;
+        }
+    }
+}
+
+.react-select{
+    &-container{
+       width: clamp(250px,45%,50%);
+
+    }
+    &__control{
+
+    }
+    &__value-container{
+
+    }
+    &__indicators{
+
+    }
+    &__menu{
+        &-list{
+            
+        }
+    }
+    &__option{
+
+    }
+}
+.loaderWrapper{
+    height:75dvh;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+    margin:15px auto;
+    position: relative;
+    color: #FFF;
+    left: -100px;
+    box-sizing: border-box;
+    animation: shadowRolling 2s linear infinite;
+  }
+  
+  @keyframes shadowRolling {
+    0% {
+      box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+    }
+    12% {
+      box-shadow: 100px 0 white, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+    }
+    25% {
+      box-shadow: 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+    }
+    36% {
+      box-shadow: 120px 0 white, 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 130px 0 white, 120px 0 white, 110px 0 white, 100px 0 white;
+    }
+    62% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white, 110px 0 white;
+    }
+    75% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white;
+    }
+    87% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 white;
+    }
+    100% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+    }
+  }
