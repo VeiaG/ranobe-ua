@@ -5,7 +5,7 @@ import "./mainPage.scss";
 const MainPage =()=>{
     const [settings,setSettings] = useState({});
     useEffect(()=>{ 
-        fetchJSON(`/books/settings.json`,setSettings);
+        fetchJSON(`./books/settings.json`,setSettings);
     },[setSettings])
     return <div className="mainPage">
         <div className="mainPage__wrapper">

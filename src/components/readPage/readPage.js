@@ -173,14 +173,14 @@ const ReadPage =()=>{
           console.error(error);
         }
         
-        fetchJSON(`/books/${category}/${author}/${book}/pages/page${page}.page`,setText,{
+        fetchJSON(`./books/${category}/${author}/${book}/pages/page${page}.page`,setText,{
           isText:true,
         },errorCallBack)
        
     },[page]);
     //aboutBookLoad
     useEffect(()=>{
-      fetchJSON(`/books/${category}/${author}/${book}/about.json`,setAboutBook);
+      fetchJSON(`./books/${category}/${author}/${book}/about.json`,setAboutBook);
     },[book]);
     return <div className="read">
         <ReadHeader page={page} aboutBook={aboutBook}/>

@@ -7,12 +7,12 @@ const BookPage =()=>{
     const [info,setInfo] = useState({});
     const {author,book,category} = useParams();
     useEffect(()=>{ 
-        fetchJSON(`/books/${category}/${author}/${book}/about.json`,setInfo)
+        fetchJSON(`./books/${category}/${author}/${book}/about.json`,setInfo)
     },[setInfo]);
     return <div className="bookPage">
             <div className="bookPage__wrapper">
                 <div className="bookPage__info">
-                        <img src={`/books/${info?.category}/${info?.author}/${info?.secondName}/cover.jpg`} 
+                        <img src={`./books/${info?.category}/${info?.author}/${info?.secondName}/cover.jpg`} 
                                 alt="cover" />
                         <h1>{info?.name}</h1>
                         <h2>{info?.secondName}</h2>

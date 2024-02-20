@@ -8,7 +8,7 @@ const Header =()=>{
         <div className="header__wrapper">
             <Link to="/">RanobeUA</Link>
             <Link to="search">Пошук</Link>
-            <button onClick={toggleTheme}>ToggleTheme</button>
+            <i onClick={toggleTheme} className={`bi bi-lightbulb${ theme === "light" ? '-fill' : ''}`}></i>
         </div>
     </div>
 }

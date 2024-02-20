@@ -13,7 +13,7 @@ const BookListItem = ({info})=>{
         navigate(spacesToHyphen(`/${info?.category}/${info?.author}/${info?.secondName}`));
     }}>
         <div className="book__imageContainer">
-            <img src={`/books/${info?.category}/${info?.author}/${info?.secondName}/cover.jpg`} 
+            <img src={`./books/${info?.category}/${info?.author}/${info?.secondName}/cover.jpg`} 
                 alt="cover" />
         </div>
         <div className="book__text">
