@@ -11,7 +11,7 @@ const PageArrows =({page, aboutBook})=>{
           <i className="bi bi-arrow-left"></i>
         </Link> : 
         <i className="bi bi-arrow-left inactive" ></i> }
-      {parseInt(aboutBook?.pages) !== parseInt(page) ? 
+      {parseInt(aboutBook?.pages?.length) !== parseInt(page) ? 
         <Link to={`../${1+parseInt(page)}`} relative="path"> 
           <i className="bi bi-arrow-right"></i>
         </Link> : 
@@ -24,9 +24,9 @@ const ReadHeader = ({page, aboutBook})=>{
 
     const [selectedPage,setSelectedPage] = useState({
       value : parseInt(page),
-      label : `Глава ${page} : ${aboutBook?.pageNames?.[parseInt(page)-1]}`
+      label : `Глава ${page} : ${aboutBook?.pages?.[parseInt(page)-1]}`
     });
-    const options = aboutBook?.pageNames?.map((val,i)=>{
+    const options = aboutBook?.pages?.map((val,i)=>{
       return {
         value: i+1,
         label: `Глава ${i+1} : ${val}`
@@ -41,7 +41,7 @@ const ReadHeader = ({page, aboutBook})=>{
     useEffect(()=>{
       setSelectedPage({
         value : parseInt(page),
-        label : `Глава ${page} : ${aboutBook?.pageNames?.[parseInt(page)-1]}`
+        label : `Глава ${page} : ${aboutBook?.pages?.[parseInt(page)-1]}`
       });
     },[page,aboutBook])
 
@@ -155,7 +155,6 @@ const ReadHeader = ({page, aboutBook})=>{
             borderRadius: 0,
             colors
           })} />
-          <Link to="/error">errortest</Link>
       </div>
     </div>
 }
@@ -164,6 +163,7 @@ const ReadPage =()=>{
     const [text,setText] = useState(`<div className="loaderWrapper"><span class="loader"></span></div>`);
     const [aboutBook,setAboutBook] = useState({});
     const {page,author,book,category} = useParams();
+    console.log(aboutBook);
     //pageTextLoad
     useEffect(()=>{
         setText(`<div class="loaderWrapper"><span class="loader"></span></div>`);
@@ -185,6 +185,7 @@ const ReadPage =()=>{
     return <div className="read">
         <ReadHeader page={page} aboutBook={aboutBook}/>
         <div className="read__wrapper">
+            <h1>{aboutBook?.pages?.[parseInt(page)-1]}</h1>
             <div dangerouslySetInnerHTML={{ __html: text }}></div>
             <div className="read__links">
               <PageArrows page={page} aboutBook={aboutBook}/>

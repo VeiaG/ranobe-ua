@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, {  useEffect, useState } from "react";
+import { useParams, Link, } from "react-router-dom";
 import fetchJSON from "../fetchLib";
 import "./bookPage.scss";
 
 const BookPage =()=>{
     const [info,setInfo] = useState({});
     const {author,book,category} = useParams();
-      
     useEffect(()=>{ 
-        fetchJSON(`/books/${category}/${author}/${book}/about.json`,setInfo);
+        fetchJSON(`/books/${category}/${author}/${book}/about.json`,setInfo)
     },[setInfo]);
     return <div className="bookPage">
             <div className="bookPage__wrapper">
@@ -18,20 +17,21 @@ const BookPage =()=>{
                         <h1>{info?.name}</h1>
                         <h2>{info?.secondName}</h2>
                         <p>Автор: <Link>{info?.author}</Link></p>
-                        <p>Кількість глав: {info?.pages}</p>
+                        <p>Кількість глав: {info?.pageCount}</p>
+                        <p>Перекладено: {info?.pages?.length}</p>
                         <div className="bookPage__tags">
                         {info?.tags?.map((name,i)=>{
-                                        return <Link 
-                                                key={i}
-                                                to={`${i+1}`} 
-                                                relative="path">{name}</Link>
-                                })}
+                                return <Link 
+                                        key={i}
+                                        to={`${i+1}`} 
+                                        relative="path">{name}</Link>
+                        })}
                         </div>
                 </div>
                 <div className="bookPage__description">
                         <p>{info?.about}</p>
                         <div className="bookPage__pagesList">
-                                {info?.pageNames?.map((name,i)=>{
+                                {info?.pages?.map((name,i)=>{
                                         return <Link 
                                                 key={i}
                                                 to={`${i+1}`} 

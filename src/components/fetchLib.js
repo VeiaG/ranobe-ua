@@ -7,20 +7,17 @@ const fetchJSON = (adress , callback, options={
   },errorCallback =(error)=>{
     console.error(error)
   })=>{
-  console.log(hyphenToSpace(adress));
   fetch(hyphenToSpace(adress))
         .then(response => {
             if (!response.ok) {
               throw new Error(`Помилка при отриманні файлу. HTTP status code: ${response.status}`);
             }
             if(options.isText){
-              console.log("isTEXT");
               return response.text();
             }
             return response.json();
           })
           .then(content => {
-
             callback(content);
           })
           .catch((error)=>{
